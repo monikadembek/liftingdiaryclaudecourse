@@ -6,6 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Before generating any code, Claude Code MUST first read and refer to the relevant documentation files in the `/docs` directory.** All implementation decisions, patterns, and conventions should align with what is specified in those docs. If a relevant doc file exists for the feature or area being worked on, it takes precedence over general assumptions.
 
+- /docs/ui.md
+- /docs/data-fetching.md
+
 ## Commands
 
 ```bash
