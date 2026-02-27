@@ -3,6 +3,25 @@ import { workouts } from "@/db/schema";
 import { and, eq } from "drizzle-orm";
 import { auth } from "@clerk/nextjs/server";
 
+export async function getWorkoutById(workoutId: number) {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthenticated");
+
+  return db.query.workouts.findFirst({
+    where: and(eq(workouts.id, workoutId), eq(workouts.userId, userId)),
+  });
+}
+
+export async function updateWorkout(workoutId: number, name: string, date: string) {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthenticated");
+
+  return db
+    .update(workouts)
+    .set({ name, date })
+    .where(and(eq(workouts.id, workoutId), eq(workouts.userId, userId)));
+}
+
 export async function createWorkout(name: string, date: string) {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthenticated");
