@@ -8,7 +8,12 @@
       "mcp__neon__run_sql",
       "mcp__neon__run_sql_transaction",
       "Bash(cd C:/IT/Kursy/ClaudeCode/liftingdiaryclaudecourse && npx shadcn@latest add calendar card button popover --yes 2>&1)",
-      "Bash(cd C:\\\\IT\\\\Kursy\\\\ClaudeCode\\\\liftingdiaryclaudecourse:*)"
+      "Bash(cd C:\\\\IT\\\\Kursy\\\\ClaudeCode\\\\liftingdiaryclaudecourse:*)",
+      "Bash(cd \"C:\\\\IT\\\\Kursy\\\\ClaudeCode\\\\liftingdiaryclaudecourse\" && npm run lint 2>&1)",
+      "Bash(cd /c/IT/Kursy/ClaudeCode/liftingdiaryclaudecourse && npx shadcn@latest add input label --yes 2>&1)",
+      "Bash(cd /c/IT/Kursy/ClaudeCode/liftingdiaryclaudecourse && npm run lint 2>&1)",
+      "Bash(head:*)",
+      "Bash(git add:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
