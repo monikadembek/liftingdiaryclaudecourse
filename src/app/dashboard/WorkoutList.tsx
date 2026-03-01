@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { format, parseISO } from "date-fns";
 import { CalendarIcon } from "lucide-react";
@@ -86,37 +87,39 @@ export function WorkoutList({
           </p>
         ) : (
           workouts.map((workout) => (
-            <Card key={workout.id}>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-base">
-                  {workout.name ?? "Untitled Workout"}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                {workout.workoutExercises.length === 0 ? (
-                  <p className="text-sm text-muted-foreground">No exercises logged.</p>
-                ) : (
-                  <div className="space-y-3">
-                    {workout.workoutExercises.map((we) => (
-                      <div key={we.id}>
-                        <p className="text-sm font-medium">{we.exercise.name}</p>
-                        {we.sets.length > 0 && (
-                          <div className="mt-1 space-y-0.5">
-                            {we.sets.map((set) => (
-                              <p key={set.id} className="text-sm text-muted-foreground">
-                                Set {set.setNumber}
-                                {set.reps != null ? ` · ${set.reps} reps` : ""}
-                                {set.weight != null ? ` · ${set.weight} kg` : ""}
-                              </p>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+            <Link key={workout.id} href={`/dashboard/workout/${workout.id}`}>
+              <Card className="hover:bg-accent transition-colors cursor-pointer">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-base">
+                    {workout.name ?? "Untitled Workout"}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {workout.workoutExercises.length === 0 ? (
+                    <p className="text-sm text-muted-foreground">No exercises logged.</p>
+                  ) : (
+                    <div className="space-y-3">
+                      {workout.workoutExercises.map((we) => (
+                        <div key={we.id}>
+                          <p className="text-sm font-medium">{we.exercise.name}</p>
+                          {we.sets.length > 0 && (
+                            <div className="mt-1 space-y-0.5">
+                              {we.sets.map((set) => (
+                                <p key={set.id} className="text-sm text-muted-foreground">
+                                  Set {set.setNumber}
+                                  {set.reps != null ? ` · ${set.reps} reps` : ""}
+                                  {set.weight != null ? ` · ${set.weight} kg` : ""}
+                                </p>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </Link>
           ))
         )}
       </div>
