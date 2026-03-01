@@ -38,7 +38,7 @@ export default function RootLayout({
         >
           <header className="header">
             <h1>Lifting Diary</h1>
-            <div>
+            <div className="flex gap-3">
               <SignedOut>
                 <SignInButton mode="modal" />
                 <SignUpButton mode="modal" />
@@ -48,7 +48,9 @@ export default function RootLayout({
               </SignedIn>
             </div>
           </header>
-          {children}
+          <main className="px-6 py-4">
+            {children}
+          </main>
         </body>
       </html>
     </ClerkProvider>
