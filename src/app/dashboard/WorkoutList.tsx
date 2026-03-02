@@ -77,9 +77,16 @@ export function WorkoutList({
       </div>
 
       <div className="space-y-3">
-        <h2 className="text-lg font-semibold">
-          Workouts for {format(date, "do MMM yyyy")}
-        </h2>
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold">
+            Workouts for {format(date, "do MMM yyyy")}
+          </h2>
+          <Button asChild>
+            <Link href={`/dashboard/workout/new?date=${selectedDate}`}>
+              Log New Workout
+            </Link>
+          </Button>
+        </div>
 
         {workouts.length === 0 ? (
           <p className="text-muted-foreground text-sm">
